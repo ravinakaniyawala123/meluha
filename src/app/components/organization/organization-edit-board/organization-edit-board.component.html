@@ -1,0 +1,37 @@
+<form class="form-horizontal" #form="ngForm" (submit)="onSubmit()">
+  <div class="container-fluid">
+    <br><br>
+    <div class="form-group row">
+      <label class="control-label col-sm-2">Name: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" #name="ngModel" value="{{changedBoard.boardName}}" [(ngModel)]="changedBoard.boardName" required>
+      </div>
+    </div>
+    <div class="form-group row" >
+      <label class="control-label col-sm-2">Code:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="code" #code="ngModel" value="{{changedBoard.boardCode}}" [(ngModel)]="changedBoard.boardCode" required>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="row col-sm-offset-2 col-sm-10">
+
+        <button
+          type="button"
+          class="btn btn-danger btn-sm btn-right cls"
+           mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
+            placement="top"
+            (confirm)="deleteBoard()"
+
+            (cancel)="cancelClicked = true"
+
+        >Delete</button>
+        <button type="submit"  class="btn btn-primary btn-sm btn-right cls" [disabled]="form.form.invalid">Edit</button>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</form>
+

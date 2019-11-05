@@ -1,0 +1,37 @@
+<div class="col-md-3 col-xs-4 left-bg d-table-col d-table-left-col custom-nav" >
+  <ul class="nav nav-pills nav-stacked">
+    <li class="{{clickedOrganization? 'active': ''}}" (click)="isClickedOrgan()">
+      <a class="link_btn">
+        <p class="menu-inline">organization master</p>
+        <p class="header-line" style=""><span class="head-inline">click here to edit</span></p>
+      </a>
+      <!--<img src="../../../assets/images/organisation.png" alt="meluha">-->
+    </li>
+    <li class="{{clickedCurriculum? 'active': ''}}" (click)="isClickedCurriculum()">
+      <a class="link_btn">
+        <p class="menu-inline">Curriculum master
+          <!--<img src="../../../assets/images/curriculum.png" alt="meluha">-->
+        </p>
+        <p class="header-line" style=""><span class="head-inline">click here to edit</span></p>
+      </a>
+    </li>
+    <li class="{{clickedContent? 'active': ''}}" (click)="isClickedContent()">
+      <a class="link_btn">
+        <p class="menu-inline">Content master
+          <!--<img src="../../../assets/images/content.png" alt="meluha">-->
+        </p>
+        <p class="header-line" style=""><span class="head-inline">click here to edit</span></p>
+      </a>
+    </li>
+    <li class="{{clickedPackage? 'active': ''}}" (click)="isClickedPackage()">
+      <a class="link_btn">
+        <p class="menu-inline">Package master
+          <!--<img src="../../../assets/images/package.png" alt="meluha">-->
+        </p>
+        <p class="header-line" style=""><span class="head-inline">click here to edit</span></p>
+      </a>
+    </li>
+  </ul>
+</div>
+
+

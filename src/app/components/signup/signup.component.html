@@ -1,0 +1,144 @@
+<div class="main-content mrg_15" style="width: 400px; margin: auto;">
+  <div class="row">
+    <div class="col-md-12 tct">
+      <img src="/assets/img/logo.png">
+    </div>
+  </div>
+  <div class="container-fluid mainbox">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mycard">
+          <div class="card-body">
+            <form [formGroup]="signUpForm" [hidden]="registerForm" (ngSubmit)="register()">
+              <h1>Register</h1>
+              <p class="text-muted">Create your account</p>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-user"></i></span>
+                </div>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
+                  autocomplete="username" required>
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" autocomplete="new-password"
+                  required>
+              </div>
+
+              <div>
+
+
+                <input type="radio" name="gender" value="male" formControlName="gender"> Male<br>
+                <input type="radio" name="gender" value="female" formControlName="gender"> Female<br>
+
+              </div>
+
+
+              <!-- 
+              <div>
+                <select id="country" formControlName="gender">
+                    <option *ngFor="let c of gender" [ngValue]="c">{{ c }}</option>
+                </select>
+            </div> -->
+
+              <div class="input-group mb-9">
+
+                <input type="date" formControlName="birthdate" placeholder="Please select birthday">
+
+              </div>
+
+
+
+              <div class="input-group mb-7">
+                <div class="input-group-prepend">
+
+                </div>
+
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="new-password"
+                  required>
+              </div>
+
+
+              <div class="input-group mb-2">
+
+                <input type="text" formControlName="address" placeholder="Address *">
+
+              </div>
+
+              <div class="input-group mb-4">
+                <!-- <div class="input-group-prepend">
+
+                </div> -->
+                <span class="input-group-text">+91</span>
+                <input type="text" class="form-control" mask='999-999-9999' formControlName="phoneNumber" placeholder="xxx-xxx-xxxx"
+                  autocomplete="new-password" required>
+              </div>
+
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+
+                </div>
+
+                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Please enter the Password"
+                  autocomplete="new-password" required>
+                <span class="sp" *ngIf="signUpForm.controls.password.hasError('pattern')">Password Must Be 8 Digit, 1
+                  Special case ,Upper case and Lower case</span>
+              </div>
+              <div class="input-group mb-6">
+                <div class="input-group-prepend">
+
+                </div>
+
+                <input type="password" id="cPassword" class="form-control" formControlName="cPassword" placeholder="Confirm Password"
+                  autocomplete="new-password" required>
+
+                <span class="sp" *ngIf="signUpForm.controls.cPassword.errors?.MatchPassword">Please Confirm Your
+                  Password! Password doesnot Match</span>
+              </div>
+
+              <div>
+                <select id="country" formControlName="role">
+                  <option *ngFor="let c of roles" [ngValue]="c">{{ c }}</option>
+                </select>
+              </div>
+
+
+              <button type="submit" [disabled]="!signUpForm.valid" class="btn btn-block btn-success">Create Account</button>
+              <button type="button" (click)="login()" class="btn btn-block btn-success">Log In</button>
+
+            </form>
+
+
+
+            <div [hidden]=afterRegistration>
+              <input id="partitioned" placeholder="xxxxxx" type="text" maxlength="6" [(ngModel)]="otp" (input)="onSearchChange($event.target.value)"
+                [ngModelOptions]="{standalone: true}" />
+              <button (click)="otpConfigration(otp)" [disabled]="nullCheckonotp">Submit otp</button>
+              <button [disabled]="resend" (click)="resendOtp()">Resend Otp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+              <div class="input-group mb-2">
+
+                <input type="text" formControlName="locale" placeholder="locale">
+
+              </div> -->
+
+
+
+<!-- <div class="input-group mb-9">
+
+                <input type="text" formControlName="Name" placeholder="Name">
+
+              </div> -->

@@ -1,0 +1,229 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="timer">
+  <p style="font-size: 20px; color: white">Uploading File...</p>
+</ngx-spinner>
+
+
+<p-growl [life]="3000" [sticky]="false" [(value)]="msgs"></p-growl>
+<div class="col-lg-9 col-md-9 col-xs-8 d-table-col custom_div">
+  <div class="tab-content" style="">
+    <div id="home" class="tab-pane fade in active">
+      <div class="buttons-all-done">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="buttons-all">
+              <div class="button1" *ngIf="boards">
+                <p-dropdown [options]="boards" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedBoard"
+                  (onChange)="getBoardId(selectedBoard, $event)" placeholder="Board" optionLabel="boardName"
+                  [showClear]="true">
+                </p-dropdown>
+              </div>
+              <div class="button2" *ngIf="selectedBoard">
+                <p-dropdown [options]="selectedBoard.classes" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedClass"
+                  (onChange)="getClassId(selectedClass, $event)" placeholder="Class" optionLabel="className"
+                  [showClear]="true">
+                </p-dropdown>
+              </div>
+
+              <div class="button3" *ngIf="selectedClass && selectedBoard && selectedClass.hasGroups && selectedClass.groups.length != 0">
+                <p-dropdown [options]="selectedClass.groups" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedGroup"
+                  (onChange)="getGroupId(selectedGroup, $event)" placeholder="Group" optionLabel="groupName"
+                  [showClear]="true">
+                </p-dropdown>
+              </div>
+              <div class="button3" *ngIf="subjects">
+                <p-dropdown [options]="subjects" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedSubject"
+                  (onChange)="getSubjectId(selectedSubject, $event)" placeholder="Subject" optionLabel="subjectName"
+                  [showClear]="true">
+                </p-dropdown>
+              </div>
+              <div class="button3" *ngIf="selectedSubject">
+                <p-dropdown [options]="selectedSubject.chapters" [style]="{'width':'120px','height':'30px'}"
+                  [(ngModel)]="selectedChapter" (onChange)="getChapterId(selectedChapter, $event)" placeholder="Chapter"
+                  optionLabel="chapterName" [showClear]="true">
+                </p-dropdown>
+              </div>
+              <div class="button3" *ngIf="selectedSubject && selectedChapter && selectedChapter.topics">
+                <p-dropdown [options]="selectedChapter.topics" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedTopic"
+                  (onChange)="getTopicId(selectedTopic, $event)" placeholder="Topic" optionLabel="topicName"
+                  [showClear]="true">
+                </p-dropdown>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="card-one left-bg">
+        <h3>Info</h3>
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+
+            <p-table [value]="videos">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Video's</th>
+
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-video>
+                <tr>
+                  <td (click)="contentPopup(video)">{{video.contentName}}</td>
+                  <!-- <button (click)="deleteContent(video)">Delete</button> -->
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+            <div *ngIf="selectedTopic">
+              <input style="display: none" type="file" (change)="onFileChanged($event,'Video')" #fileInput>
+              <button class="btn btn-default btn-sm" (click)="fileInput.click()">Select File</button>
+              <button class="btn btn-default btn-sm" [disabled]="uploadSucessVideo" (click)="onUpload('Video')">Upload!</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+
+            <p-table [value]="ppts">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>PPT's</th>
+
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-ppt>
+                <tr>
+                  <td (click)="contentPopup(ppt)">{{ppt.contentName}}</td>
+                  <!-- <button (click)="deleteContent(ppt)">Delete</button> -->
+
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+            <div *ngIf="selectedTopic">
+              <input style="display: none" type="file" (change)="onFileChanged($event,'PPT')" #fileInput>
+              <button class="btn btn-default btn-sm" (click)="fileInput.click()">Select File</button>
+              <button class="btn btn-default btn-sm" [disabled]="uploadSucessPpt" (click)="onUpload('PPT')">Upload!</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+
+            <p-table [value]="pdfs">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>PDF's</th>
+
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-pdf>
+                <tr>
+                  <td (click)="contentPopup(pdf)">{{pdf.contentName}}</td>
+                  <!-- <button (click)="deleteContent(pdf)">Delete</button> -->
+
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+            <div *ngIf="selectedTopic">
+              <input style="display: none" type="file" (change)="onFileChanged($event,'PDF')" #fileInput>
+              <button class="btn btn-default btn-sm" (click)="fileInput.click()">Select File</button>
+              <button class="btn btn-default btn-sm" [disabled]="uploadSucessPdf" (click)="onUpload('PDF')">Upload!</button>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+
+            <p-table [value]="quizes">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Quiz's</th>
+
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-quize>
+                <tr>
+                  <td>{{quize.contentName}} </td>
+
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+            <div *ngIf="selectedTopic">
+              <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+              <button class="btn btn-default btn-sm" (click)="fileInput.click()">Select File</button>
+              <button class="btn btn-default btn-sm" [disabled]="uploadSucess" (click)="onUpload('Quiz')">Upload!</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <p>Bulk Upload</p>
+  <span>
+    <span  *ngIf="!missingFilesArray">
+      {{key}}
+    </span>
+    <div *ngIf="missingFilesArray">
+      <div *ngFor="let item of bulkUploadFile">
+        {{item.missingFiles}}
+      </div>
+    </div>
+
+
+  </span>
+  <input style="display: none" type="file" (change)="incomingfile($event)" #fileInput>
+  <button class="btn btn-default btn-sm" [disabled]="bulkSelect" (click)="fileInput.click()">Select File</button>
+  <button class="btn btn-default btn-sm" [disabled]="bulkUploadButton" (click)="Upload()"> bulkuPload</button>
+
+
+</div>
+
+<p-dialog [style]="{'background':'white'}" [(visible)]="showPopup" [modal]="true" [height]="250" [responsive]="true"
+  [width]="500">
+  <p-header>
+    Details of the file :- {{nameofFileOnPopUp}}
+  </p-header>
+  <table>
+    <tr>
+      <td class="line">contentFileType</td>
+      <td class="line">{{contentTypeOnPopUP}} </td>
+    </tr>
+
+    <tr>
+      <td class="line">contentId</td>
+      <td class="line">{{contentIdOnPopUP}} </td>
+    </tr>
+
+    <tr>
+      <td class="line">contentName</td>
+      <td class="line">{{contentNameOnPopUP}} </td>
+    </tr>
+
+    <tr>
+      <td class="line">contentResourceType</td>
+      <td class="line">{{contentResourceOnPopUP}} </td>
+    </tr>
+
+    <tr>
+      <td class="line">contentStorageBucketName</td>
+      <td class="line">{{contentStorageBucketNameOnPopUP}} </td>
+    </tr>
+
+    <tr>
+      <td class="line">contentStorageKey</td>
+      <td class="line">{{contentStorageKeyPopUP}} </td>
+    </tr>
+  </table>
+  <!-- contentFileType :{{contentTypeOnPopUP}} 
+  contentId: {{contentIdOnPopUP}}
+  contentName: {{contentNameOnPopUP}} 
+  contentResourceType : {{contentResourceOnPopUP}} 
+  contentStorageBucketName : {{contentStorageBucketNameOnPopUP}}
+  contentStorageKey:  {{contentStorageKeyPopUP}}-->

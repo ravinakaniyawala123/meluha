@@ -1,0 +1,1048 @@
+/* line 30, D:/LmsApp/scss/main.scss */
+html:focus,
+input[type=text]:focus,
+textarea:focus,
+select:focus,
+button:focus,
+.btn:focus,
+.bootstrap-select .btn:focus,
+.slider:focus,
+html [type="button"]:focus,
+[type="reset"]:focus,
+[type="submit"]:focus,
+.dropdown-toggle:focus button,
+.dropdown-toggle:focus html:focus,
+.dropdown-toggle:focus html [type="button"]:focus, html
+.dropdown-toggle:focus [type="button"]:focus,
+.dropdown-toggle:focus input[type=text]:focus,
+.dropdown-toggle:focus textarea:focus,
+.dropdown-toggle:focus select:focus,
+.dropdown-toggle:focus .btn:focus,
+.dropdown-toggle:focus .slider:focus,
+.dropdown-toggle:focus [type="reset"]:focus,
+.dropdown-toggle:focus [type="submit"]:focus,
+.dropdown-toggle:focus .dropdown-toggle:focus {
+  box-shadow: 0 0 0 transparent !important;
+  outline: none !important;
+  border: 0 !important;
+}
+
+/* line 52, D:/LmsApp/scss/main.scss */
+input[type=text]:active,
+textarea:active,
+select:active,
+button:active,
+.slider:active,
+html [type="button"]:active,
+[type="reset"]:active,
+[type="submit"]:active,
+.btn:active,
+.dropdown-toggle:active button,
+.dropdown-toggle:active html [type="button"]:active, html
+.dropdown-toggle:active [type="button"]:active,
+.dropdown-toggle:active input[type=text]:active,
+.dropdown-toggle:active textarea:active,
+.dropdown-toggle:active select:active,
+.dropdown-toggle:active .btn:active,
+.dropdown-toggle:active .slider:active,
+.dropdown-toggle:active [type="reset"]:active,
+.dropdown-toggle:active [type="submit"]:active,
+.dropdown-toggle:active .dropdown-toggle:active {
+  box-shadow: 0 0 0 transparent !important;
+  outline: none !important;
+  border: 0 !important;
+}
+
+/* line 71, D:/LmsApp/scss/main.scss */
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+  color: #738089;
+  background-color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* line 79, D:/LmsApp/scss/main.scss */
+.d-table {
+  dispaly: table;
+  width: 100%;
+}
+
+/* line 83, D:/LmsApp/scss/main.scss */
+.d-table-left-col {
+  height: 100vh;
+}
+
+/* line 86, D:/LmsApp/scss/main.scss */
+.d-table-col {
+  display: table-cell;
+}
+
+/* line 89, D:/LmsApp/scss/main.scss */
+.left-bg {
+  background-color: #f1f1f1;
+}
+
+/* line 92, D:/LmsApp/scss/main.scss */
+.card-one {
+  padding: 20px;
+}
+
+/* line 94, D:/LmsApp/scss/main.scss */
+.card-one.left-bg {
+  border-radius: 10px;
+}
+
+/* line 97, D:/LmsApp/scss/main.scss */
+.card-one.left-bg.margin-bottom {
+  border-radius: 10px;
+}
+
+/* line 103, D:/LmsApp/scss/main.scss */
+h1 {
+  margin-top: 0;
+}
+
+/* line 106, D:/LmsApp/scss/main.scss */
+h2 {
+  margin-top: 0;
+}
+
+/* line 109, D:/LmsApp/scss/main.scss */
+h3 {
+  margin-top: 0;
+}
+
+/* line 112, D:/LmsApp/scss/main.scss */
+h4 {
+  margin-top: 0;
+}
+
+/* line 115, D:/LmsApp/scss/main.scss */
+h5 {
+  margin-top: 0;
+}
+
+/* line 118, D:/LmsApp/scss/main.scss */
+h6 {
+  margin-top: 0;
+}
+
+/* line 121, D:/LmsApp/scss/main.scss */
+.margin-bottom {
+  margin-bottom: 15px;
+  padding: 0 48px;
+}
+
+/* line 125, D:/LmsApp/scss/main.scss */
+button {
+  border-bottom: 2px solid #ccc !important;
+  margin-top: 10px;
+  background-color: #eee;
+  border: 2px solid #00f;
+  color: #17bb1c;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* line 136, D:/LmsApp/scss/main.scss */
+button:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 145, D:/LmsApp/scss/main.scss */
+html:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 150, D:/LmsApp/scss/main.scss */
+html [type="button"]:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 168, D:/LmsApp/scss/main.scss */
+textarea:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 177, D:/LmsApp/scss/main.scss */
+select:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 186, D:/LmsApp/scss/main.scss */
+.btn:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 193, D:/LmsApp/scss/main.scss */
+.btn.form-check-label {
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  padding: 8px 26px;
+}
+
+/* line 198, D:/LmsApp/scss/main.scss */
+.btn.form-check-label.active {
+  color: #fff;
+  background: #41c0c2;
+  font-weight: 700;
+  padding: 8px 26px;
+}
+
+/* line 204, D:/LmsApp/scss/main.scss */
+.btn.form-check-label:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* line 209, D:/LmsApp/scss/main.scss */
+.btn.btn-warning {
+  padding: 10px 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ff9600;
+}
+
+/* line 216, D:/LmsApp/scss/main.scss */
+.btn:hover {
+  color: #fff;
+}
+
+/* line 221, D:/LmsApp/scss/main.scss */
+.slider:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 230, D:/LmsApp/scss/main.scss */
+[type="reset"]:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 239, D:/LmsApp/scss/main.scss */
+[type="submit"]:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 248, D:/LmsApp/scss/main.scss */
+.dropdown-toggle:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 258, D:/LmsApp/scss/main.scss */
+.nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* line 272, D:/LmsApp/scss/main.scss */
+.nav-pills a {
+  color: #738089;
+  border-top: 1px solid #ccc;
+  border-radius: 0;
+}
+
+/* line 279, D:/LmsApp/scss/main.scss */
+.border-bottom {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 284, D:/LmsApp/scss/main.scss */
+#dropdownMenuLink {
+  border-right: 1px solid #ccc;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* line 289, D:/LmsApp/scss/main.scss */
+.title {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* line 292, D:/LmsApp/scss/main.scss */
+.title h3 {
+  color: #ff9600;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* line 298, D:/LmsApp/scss/main.scss */
+.heading-group {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* line 302, D:/LmsApp/scss/main.scss */
+.check-list {
+  display: inline-flex;
+}
+
+/* line 304, D:/LmsApp/scss/main.scss */
+.check-list p {
+  padding: 10px;
+}
+
+/* line 308, D:/LmsApp/scss/main.scss */
+.table-popup {
+  text-align: center;
+}
+
+/* line 310, D:/LmsApp/scss/main.scss */
+.table-popup th {
+  text-align: center;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+/* line 315, D:/LmsApp/scss/main.scss */
+.table-popup tr td {
+  padding: 8px;
+}
+
+/* line 319, D:/LmsApp/scss/main.scss */
+.modal-title {
+  text-align: center;
+  font-size: 28px;
+  color: #008000;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* line 326, D:/LmsApp/scss/main.scss */
+.button-pop {
+  display: inline-flex;
+  padding: 10px;
+}
+
+/* line 330, D:/LmsApp/scss/main.scss */
+.pop-insert {
+  padding: 10px;
+}
+
+/* line 332, D:/LmsApp/scss/main.scss */
+.pop-insert a {
+  background: #ff9600;
+  padding: 6px 16px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+/* line 344, D:/LmsApp/scss/main.scss */
+.pop-group {
+  padding: 10px;
+}
+
+/* line 346, D:/LmsApp/scss/main.scss */
+.pop-group input {
+  padding: 10px;
+  text-align: left;
+  width: auto;
+}
+
+/* line 352, D:/LmsApp/scss/main.scss */
+.pop-add {
+  padding: 10px;
+}
+
+/* line 354, D:/LmsApp/scss/main.scss */
+.pop-add a {
+  background: #ff9600;
+  padding: 6px 16px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+/* line 366, D:/LmsApp/scss/main.scss */
+.modal-body {
+  text-align: center;
+}
+
+/* line 369, D:/LmsApp/scss/main.scss */
+.group-pop {
+  display: inline-flex;
+  padding: 20px;
+}
+
+/* line 373, D:/LmsApp/scss/main.scss */
+.modal-dialog {
+  padding: 50px;
+  background: #fff;
+  height: auto;
+}
+
+/* line 378, D:/LmsApp/scss/main.scss */
+.modal-content {
+  background: #f1f1f1;
+}
+
+/* line 381, D:/LmsApp/scss/main.scss */
+.buttons-all {
+  display: inline-flex;
+  padding: 10px;
+}
+
+/* line 385, D:/LmsApp/scss/main.scss */
+.button1 {
+  padding: 6px;
+}
+
+/* line 387, D:/LmsApp/scss/main.scss */
+.button1 button {
+  background: #ff9800;
+  color: #fff;
+  padding: 8px 30px;
+}
+
+/* line 393, D:/LmsApp/scss/main.scss */
+.button2 {
+  padding: 6px;
+}
+
+/* line 395, D:/LmsApp/scss/main.scss */
+.button2 button {
+  background: #000;
+  color: #fff;
+  padding: 8px 26px;
+}
+
+/* line 401, D:/LmsApp/scss/main.scss */
+.button3 {
+  padding: 6px;
+}
+
+/* line 403, D:/LmsApp/scss/main.scss */
+.button3 button {
+  background: #000;
+  color: #fff;
+  padding: 8px 26px;
+}
+
+/* line 409, D:/LmsApp/scss/main.scss */
+.vector-sec {
+  padding: 20px;
+}
+
+/* line 411, D:/LmsApp/scss/main.scss */
+.vector-sec .panel-default > .panel-heading {
+  background-color: #1dbbba;
+  color: #fff;
+  height: 44px;
+}
+
+/* line 416, D:/LmsApp/scss/main.scss */
+.vector-sec h4 .panel-title > a {
+  font-size: 24px;
+}
+
+/* line 421, D:/LmsApp/scss/main.scss */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* line 425, D:/LmsApp/scss/main.scss */
+.input-container .glyphicon.glyphicon-plus {
+  background: none;
+}
+
+/* line 429, D:/LmsApp/scss/main.scss */
+.icon {
+  color: #000;
+  min-width: 50px;
+  text-align: center;
+  margin-left: -40px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+/* line 437, D:/LmsApp/scss/main.scss */
+.icon1 {
+  color: #ccc;
+  min-width: 50px;
+  text-align: center;
+  margin-left: -40px;
+  margin-top: 8px;
+  padding: 0;
+}
+
+/* line 445, D:/LmsApp/scss/main.scss */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  height: 36px;
+}
+
+/* line 450, D:/LmsApp/scss/main.scss */
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* line 454, D:/LmsApp/scss/main.scss */
+.btn-click {
+  background-color: #58e871;
+  color: #fff;
+}
+
+/* line 458, D:/LmsApp/scss/main.scss */
+.inline-buttons {
+  padding: 20px 4px;
+  text-transform: uppercase;
+}
+
+/* line 463, D:/LmsApp/scss/main.scss */
+.subject {
+  padding: 20px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* line 469, D:/LmsApp/scss/main.scss */
+.inline-buttons1 {
+  float: right;
+  display: inline-flex;
+  padding: 20px 4px;
+  text-transform: uppercase;
+}
+
+/* line 475, D:/LmsApp/scss/main.scss */
+.edit-anchor {
+  padding: 0 6px;
+}
+
+/* line 477, D:/LmsApp/scss/main.scss */
+.edit-anchor a {
+  background: #ff9800;
+  padding: 8px 26px;
+  color: #fff;
+}
+
+/* line 483, D:/LmsApp/scss/main.scss */
+#collapse1 {
+  margin: 22px;
+}
+
+/* line 488, D:/LmsApp/scss/main.scss */
+.glyphicon.glyphicon-remove {
+  padding: 11px;
+  position: relative;
+  right: 46px;
+}
+
+/* line 493, D:/LmsApp/scss/main.scss */
+.glyphicon.glyphicon-plus {
+  color: #fff;
+  background: red;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+/* line 502, D:/LmsApp/scss/main.scss */
+.created-subjects h4 {
+  color: #ff9800;
+  border-left: 2px solid #ff9800;
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+/* line 508, D:/LmsApp/scss/main.scss */
+.created-subjects a {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 4px 20px;
+  color: #919191;
+}
+
+/* line 516, D:/LmsApp/scss/main.scss */
+.table.table-striped.table-bordered tr th {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* line 520, D:/LmsApp/scss/main.scss */
+.table table-striped table-bordered {
+  width: 100%;
+}
+
+/* line 522, D:/LmsApp/scss/main.scss */
+.table table-striped table-bordered tr td {
+  padding: 10px;
+}
+
+/* line 527, D:/LmsApp/scss/main.scss */
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
+
+/* line 531, D:/LmsApp/scss/main.scss */
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+/* line 542, D:/LmsApp/scss/main.scss */
+.fileUpload.btn.add-videos:hover {
+  color: #ff9800;
+}
+
+/* line 546, D:/LmsApp/scss/main.scss */
+tr {
+  cursor: pointer;
+}
+
+/* line 549, D:/LmsApp/scss/main.scss */
+.selected {
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* line 554, D:/LmsApp/scss/main.scss */
+#table {
+  background: #fff;
+}
+
+/* line 557, D:/LmsApp/scss/main.scss */
+.left-package {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+/* line 563, D:/LmsApp/scss/main.scss */
+.left-package .dropdown {
+  border-bottom: 2px solid #ccc;
+  padding: 16px;
+}
+
+/* line 567, D:/LmsApp/scss/main.scss */
+.left-package .dropdown-toggle {
+  color: #ccc;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* line 572, D:/LmsApp/scss/main.scss */
+.left-package .dropdown-menu a {
+  padding: 2px 10px;
+}
+
+/* line 576, D:/LmsApp/scss/main.scss */
+.inner-check {
+  border-bottom: 2px solid #ccc;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+/* line 580, D:/LmsApp/scss/main.scss */
+.inner-check .checkbox label {
+  width: 100%;
+  padding: 6px 14px;
+}
+
+/* line 585, D:/LmsApp/scss/main.scss */
+.inner-anchors {
+  padding: 30px 0;
+  text-align: center;
+}
+
+/* line 588, D:/LmsApp/scss/main.scss */
+.inner-anchors a {
+  background: #1dbbba;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* line 599, D:/LmsApp/scss/main.scss */
+.right-inner-package {
+  display: inline-flex;
+}
+
+/* line 601, D:/LmsApp/scss/main.scss */
+.right-inner-package .input-field {
+  width: auto;
+}
+
+/* line 605, D:/LmsApp/scss/main.scss */
+.right-pane-text {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+/* line 611, D:/LmsApp/scss/main.scss */
+.right-package-heading {
+  border-bottom: 2px solid #ccc;
+  padding: 0 34px;
+  background: #f1f1f1;
+}
+
+/* line 615, D:/LmsApp/scss/main.scss */
+.right-package {
+  padding: 20px 36px;
+}
+
+/* line 618, D:/LmsApp/scss/main.scss */
+.package-page {
+  background: #f1f1f1;
+}
+
+/* line 621, D:/LmsApp/scss/main.scss */
+.subject1 {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* line 626, D:/LmsApp/scss/main.scss */
+.subject-input1 {
+  display: inline-block;
+}
+
+/* line 628, D:/LmsApp/scss/main.scss */
+.subject-input1 input {
+  background: #f1f1f1;
+  border: none;
+  border-bottom-color: currentcolor;
+  border-bottom-style: none;
+  border-bottom-width: medium;
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* line 640, D:/LmsApp/scss/main.scss */
+.accordion-option {
+  width: 100%;
+  float: left;
+  clear: both;
+  margin: 15px 0;
+}
+
+/* line 645, D:/LmsApp/scss/main.scss */
+.accordion-option .title {
+  font-size: 20px;
+  font-weight: bold;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 652, D:/LmsApp/scss/main.scss */
+.accordion-option .toggle-accordion {
+  float: right;
+  font-size: 16px;
+  color: #6a6c6f;
+}
+
+/* line 656, D:/LmsApp/scss/main.scss */
+.accordion-option .toggle-accordion:before {
+  content: "Expand All";
+}
+
+/* line 659, D:/LmsApp/scss/main.scss */
+.accordion-option .toggle-accordion.active:before {
+  content: "Collapse All";
+}
+
+/* line 664, D:/LmsApp/scss/main.scss */
+.head-inline {
+  display: block;
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* line 669, D:/LmsApp/scss/main.scss */
+.menu-inline {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* line 673, D:/LmsApp/scss/main.scss */
+.header-section-inner {
+  background-color: #161e2b;
+  position: relative;
+}
+
+/* line 676, D:/LmsApp/scss/main.scss */
+.header-section-inner .dropdown {
+  padding: 10px 30px;
+  text-align: right;
+  font-size: 14px;
+}
+
+/* line 680, D:/LmsApp/scss/main.scss */
+.header-section-inner .dropdown button {
+  background-color: #161e2b;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* line 686, D:/LmsApp/scss/main.scss */
+.header-section-inner .dropdown-menu {
+  right: 0;
+  width: 200px;
+  left: inherit;
+}
+
+/* line 692, D:/LmsApp/scss/main.scss */
+.pading-inner1 {
+  padding-right: 0;
+  padding-top: 50px;
+}
+
+/* line 696, D:/LmsApp/scss/main.scss */
+.header-line {
+  margin: 0;
+}
+
+/* line 699, D:/LmsApp/scss/main.scss */
+.tab-content {
+  padding-top: 50px;
+}
+
+/* line 702, D:/LmsApp/scss/main.scss */
+.modal-popup {
+  border-radius: 0;
+  margin-bottom: 15px;
+}
+
+/* line 707, D:/LmsApp/scss/main.scss */
+.class11 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* line 711, D:/LmsApp/scss/main.scss */
+.class12 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* line 715, D:/LmsApp/scss/main.scss */
+.style-button {
+  margin-top: 50px;
+  align-self: flex-end !important;
+  display: flex;
+  background: #ff9600;
+}
+
+/* line 721, D:/LmsApp/scss/main.scss */
+.modal-header {
+  border: 0;
+}
+
+/* line 724, D:/LmsApp/scss/main.scss */
+.modal-footer {
+  border: 0;
+}
+
+@media screen and (max-width: 1366px) {
+  /* line 728, D:/LmsApp/scss/main.scss */
+  .menu-inline {
+    margin: 0;
+    font-size: 12px;
+  }
+  /* line 732, D:/LmsApp/scss/main.scss */
+  .nav.nav-pills.nav-stacked img {
+    width: 25%;
+  }
+}
+
+/* line 736, D:/LmsApp/scss/main.scss */
+.bootstrap-select .btn:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 741, D:/LmsApp/scss/main.scss */
+.nav.nav-pills.nav-stacked a {
+  text-transform: uppercase;
+}
+
+/* line 744, D:/LmsApp/scss/main.scss */
+.nav.nav-pills.nav-stacked img {
+  float: right;
+  margin: -6px -10px;
+}
+
+/* line 749, D:/LmsApp/scss/main.scss */
+.dropdown-menu a {
+  display: inherit;
+  padding: 10px 20px;
+}
+
+/* line 753, D:/LmsApp/scss/main.scss */
+.main-heading a {
+  background: #ff9600;
+  color: #fff;
+  padding: 5px 60px;
+}
+
+/* line 758, D:/LmsApp/scss/main.scss */
+.toggle.btn {
+  min-width: 80px;
+}
+
+/* line 761, D:/LmsApp/scss/main.scss */
+.panel-body form {
+  margin-left: 20px;
+}
+
+/* line 764, D:/LmsApp/scss/main.scss */
+.subject-input input {
+  background: #f1f1f1;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* line 772, D:/LmsApp/scss/main.scss */
+.save-anchor a {
+  background: #000;
+  padding: 8px 26px;
+  color: #fff;
+}
+
+/* line 777, D:/LmsApp/scss/main.scss */
+div .drop-down-list {
+  width: 200px;
+  background: #f1f1f1;
+}
+.drop-down-list select{
+  background: #f1f1f1;
+  width: 200px;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #ff9800;
+  border: 2px #C8C8C8 solid;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+/* line 788, D:/LmsApp/scss/main.scss */
+input[type="text"]:focus {
+  border-bottom: 2px solid #ccc !important;
+}
+
+/* line 791, D:/LmsApp/scss/main.scss */
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: #f1f1f1;
+  border-color: #e4e5e7;
+  padding: 0;
+  user-select: none;
+}
+
+/* line 798, D:/LmsApp/scss/main.scss */
+.panel-default > .panel-heading a {
+  display: block;
+  padding: 10px 15px;
+}
+
+/* line 801, D:/LmsApp/scss/main.scss */
+.panel-default > .panel-heading a:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: Glyphicons Halflings;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  float: right;
+  transition: transform .25s linear;
+}
+
+/* line 815, D:/LmsApp/scss/main.scss */
+.panel-default > .panel-heading a[aria-expanded="true"]:after {
+  content: "\2212";
+  transform: rotate(180deg);
+}
+
+/* line 820, D:/LmsApp/scss/main.scss */
+.panel-default > .panel-heading a[aria-expanded="false"]:after {
+  content: "\002b";
+  transform: rotate(90deg);
+}
+
+/* line 826, D:/LmsApp/scss/main.scss */
+.listing-status p {
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* line 830, D:/LmsApp/scss/main.scss */
+.listing-status1 p {
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* line 834, D:/LmsApp/scss/main.scss */
+.panel.panel-default {
+  background: #f1f1f1;
+}
+
+/* line 836, D:/LmsApp/scss/main.scss */
+.panel-title {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 840, D:/LmsApp/scss/main.scss */
+.right-package-heading1 {
+  border-bottom: 2px solid #ccc;
+  padding: 0 34px;
+  background: #fff;
+}
+
+/* line 845, D:/LmsApp/scss/main.scss */
+.right-package {
+  background: #f1f1f1;
+}
+
+/* line 847, D:/LmsApp/scss/main.scss */
+.create-package {
+  padding: 20px 0;
+  float: right;
+}
+
+/* line 850, D:/LmsApp/scss/main.scss */
+.create-package a {
+  background: #ff9600;
+  color: #fff;
+  padding: 10px 44px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=../css/main.map */

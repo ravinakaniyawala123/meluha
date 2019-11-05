@@ -1,0 +1,147 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~primeng/resources/primeng.min.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "~primeicons/primeicons.css";
+@import "assets/css/main.css";
+@import "~primeng/resources/themes/omega/theme.css";
+
+body {
+  background-color: #fff;
+  font-family: "Helvetica Neue",Arial,sans-serif;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+a, a > i {
+  color: #007bff;
+}
+
+.table td, .table th {
+  padding: 11px !important; /* Bootstrap bug fix */
+}
+td {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.material-icons { font-size: 18px; vertical-align: sub; cursor: pointer }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.md-btn { margin-top: -3px; margin-right: 3px; }
+.md-disabled { color: #6c757d; }
+
+.form-label {
+  text-align: right;
+}
+.form-offset-3 {
+  margin-left: 25%;
+}
+.auto {
+  width: auto;
+}
+
+.btn-right {
+  float: right;
+  margin-left: 10px;
+}
+.inner-addon {
+  position: relative;
+}
+.inner-addon .material-icons {
+  position: absolute;
+  padding: 7px;
+  pointer-events: none;
+  z-index: 1;
+}
+.left-addon .material-icons {
+  left:  0;
+  top: 2px;
+}
+.left-addon input {
+  padding-left: 30px;
+}
+.search-panel {
+  margin: 5px 0 10px 0;
+}
+.search-panel input {
+  max-width: 250px;
+}
+
+/* Primeng Style */
+.ui-dialog {
+  width: 600px;
+  overflow: auto;
+  max-height: 500px;
+}
+.ui-dialog-titlebar {
+  background: white;
+  border-bottom:1px solid !important;
+  border-color: #d6cfcf !important;
+}
+.ui-growl {
+  top: 65px;
+}
+.ui-widget-content {
+  border: none;
+}
+.ui-inputtext {
+  width: 100%;
+}
+.ui-password-panel {
+  z-index: 9999 !important;
+}
+
+.ui-dropdown .ui-dropdown-panel {
+  min-width: 100%;
+  width: max-content;
+}
+.ui-dropdown .ui-dropdown-panel {
+  min-width: 100% !important;
+  outline: 2px solid #d5d5d5 !important;
+}
+.ui-dropdown.dropdown-invalid {
+  border-left: solid 3px #a94442;
+}
+.ui-dropdown.dropdown-valid {
+  border-left: solid 3px #42A948;
+}
+
+/* Common Style */
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+.ft-16 {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .ui-dialog {
+    width: 100%;
+  }
+  .form-label {
+    text-align: left;
+  }
+  .form-offset-3 {
+    margin-left: 0;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

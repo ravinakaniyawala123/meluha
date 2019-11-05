@@ -1,0 +1,40 @@
+@media (min-width: 1200px) {
+  .custom_div{
+    width: calc(100vw - 320px);
+  }
+}
+.btn_a{
+  float: right;
+  border: 1px solid #000 !important;
+  padding: 0px 5px 4px 5px;
+  font-size: 12px;
+  height: 18px;
+  margin-top: 5px;
+  line-height: 18px;
+}
+.heading{
+  text-align: center;
+  /* font-weight: 400; */
+  font-size: 16px;
+  line-height: 38px;
+  font-weight: bold;
+}
+.subject-input1 input{
+  font-size: 16px !important;
+}
+
+::placeholder{
+  font-size: 16px;
+}
+  
+.bt_2a{
+  float: right;
+  background:#ff9800;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.bt_save1{
+  background:black;
+  color: #fff;
+  width: 30%;
+}

@@ -1,0 +1,47 @@
+<form class="form-horizontal" #form="ngForm" (submit)="onSubmit()">
+
+  <div class="container-fluid">
+    <br>
+    <br>
+    <div class="row">
+      <div class="form-group row h">
+        <label class="control-label col-sm-3">CLASS </label>
+        <label class="control-label col-sm-5">GROUPS </label>
+        <label class="control-label col-sm-4">STATUS</label>
+      </div>
+    </div>
+    <div class="form-group row" *ngFor="let class of classes; let i = index;">
+      <div class="form-group">
+        <div class="col-sm-5">
+          <!-- <input type="text" class="form-control" name="className{{i}}" [(ngModel)]="class.className"> -->
+          <input type="text" class="form-control" name="className{{i}}" [(ngModel)]="class.className">
+        </div>  
+        <div class="col-sm-5">
+          <div class="check">
+            <label class="radio-inline">
+              <input type="radio" name="group{{i}}" [(ngModel)]="class.hasGroups" [value]="true">yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="group{{i}}" [(ngModel)]="class.hasGroups" [value]="false">no
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <ui-switch name="activity{{i}}" [(ngModel)]="class.isActivity" size="small"></ui-switch>
+        </div>
+      </div>
+      <button type="button" class="deleteBtn delete_bt" (click)="delete(class)">delete</button>
+
+    </div>
+
+    <div class="bottom">
+      <div class="row col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn  btn-default btn-sm btn-right cls" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-sm btn-right cls">Create</button>
+        <button type="button" class="btn btn-success btn-sm btn-right cls" (click)="Add()">Add</button>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</form>

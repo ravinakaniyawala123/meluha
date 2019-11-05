@@ -1,0 +1,23 @@
+div.container-fluid{
+  background-color: white!important;
+}
+
+button:not(.custom_btn){
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+div.check{
+  margin-left: 20px;
+}
+ui-switch{
+  margin-left: 20px;
+}
+div.form-group.row{
+  width: 480px;
+}
+div.form-group.row.h{
+  margin-left: 10px;
+}

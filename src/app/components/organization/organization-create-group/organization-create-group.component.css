@@ -1,0 +1,32 @@
+div.check{
+  margin-left: 20px;
+}
+ui-switch{
+  margin-left: 20px;
+}
+button:not(.custom_btn){
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+div.form-group.row{
+  width: 480px;
+}
+div.form-group.row.h{
+  margin-left: 10px;
+}
+button.btn.btn-default.btn-sm.btn-right.cls{
+  text-decoration: none;
+}
+.deleteBtn{
+  width: 55px !important;
+  height: 25px !important;
+  border: none;
+  position: relative;
+  left: 65px;
+  float: right;
+  margin-top: -28px;
+  right: 0;
+}

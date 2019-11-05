@@ -1,0 +1,41 @@
+.col-xs-2{
+  padding-right: 0px;
+}
+ul.nav-pills{
+  padding-top: 50px;
+}
+.link_btn {
+    background-size: 40px 40px;
+}
+.nav-stacked li:nth-child(1) a {
+  background: url('../../../assets/images/organisation.png') no-repeat right;
+}
+.nav-stacked li:nth-child(2) a {
+  background: url('../../../assets/images/curriculum.png') no-repeat right;
+}
+.nav-stacked li:nth-child(3) a {
+  background: url('../../../assets/images/content.png') no-repeat right;
+}
+.nav-stacked li:nth-child(4) a {
+  background: url('../../../assets/images/package.png') no-repeat right;
+}
+@media (max-width: 768px) {
+  .link_btn {
+    background-size: 35px 35px!important;
+  }
+}
+@media (min-width: 1200px) {
+  .custom-nav {
+    width: 300px;
+  }
+}
+li.active {
+  background-color: white!important;
+}
+.custom-nav {
+  padding-right: 0!important;
+}
+.custom-nav li {
+  cursor: pointer;
+}
+

@@ -1,0 +1,277 @@
+<p-growl [life]="3000" [sticky]="false" [(value)]="msgs"></p-growl>
+
+<div class="col-lg-9 col-md-9 col-xs-8 d-table-col custom_div">
+
+  <div class="package-page">
+    <div class="tab-content" style="padding-top: 50px;">
+      <div id="home" class="tab-pane fade in active">
+        <div class="buttons-all-done">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="buttons-all">
+                <div *ngIf="boards">
+                  <p-dropdown [options]="boards" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedBoard"
+                    (onChange)="getBoardId(selectedBoard, $event)" placeholder="Board" optionLabel="boardName"
+                    [showClear]="true">
+                  </p-dropdown>
+                </div>
+                <div *ngIf="selectedBoard">
+                  <p-dropdown [options]="selectedBoard.classes" [style]="{}" [(ngModel)]="selectedClass" (onChange)="getClassId(selectedClass, $event)"
+                    placeholder="Class" optionLabel="className" [showClear]="true">
+                  </p-dropdown>
+                </div>
+                <div *ngIf="selectedClass && selectedBoard && selectedClass.hasGroups">
+                  <p-dropdown [options]="selectedClass.groups" [style]="{}" [(ngModel)]="selectedGroup" (onChange)="getGroupId(selectedGroup, $event)"
+                    placeholder="Group" optionLabel="groupName" [showClear]="true">
+                  </p-dropdown>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="divide-package">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="left-package">
+                <div class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown">Select Subjects
+                    <span class="caret"></span>
+                  </a>
+                  <div class="dropdown-menu" *ngIf="drop ==true">
+
+                    <div *ngIf="subjectDropDown">
+                      <div *ngFor="let subject of subjects">
+                        <input type="checkbox" [(ngModel)]="subject.selected" (change)='onSubjectChange(subject, $event.target.checked)'>
+                        {{subject.subjectName}}
+                        <br>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="inner-check">
+                  <div *ngFor="let chapters of subjectArrayFromDrop">
+                    <div *ngFor="let chapter of chapters.chapters">
+                      <input type="checkbox" [(ngModel)]="chapter.selected" (change)='onChapterSelect(chapter,$event.target.checked)'>
+                      <span style.background="{{chapter.colour}}">
+                        {{chapter.chapterName}}
+                      </span>
+                      <br>
+                    </div>
+                  </div>
+                  <div>
+
+                  </div>
+                  <div class>
+
+
+                  </div>
+                </div>
+                <div class="inner-anchors">
+                  <!-- <a href="#" class="proceed" id="proceed" (click)="proceedToSave()">Proceed</a> -->
+                </div>
+              </div>
+              <!-- <div class="heading">Package</div> -->
+              <!-- <div *ngFor="let item of pacakageData"> -->
+              <!-- <div class="col-md-10">{{item.packagedName}}</div> -->
+              <!-- <div class="col-md-2">
+                  <button class="btn_a" (click)="edit(item)">Edit</button>
+                </div> -->
+              <!-- </div> -->
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9">
+              <div class="right-pane-text">
+                <div class="right-package-heading">
+                  <div class="subject1">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-6">
+
+                        <div class="subject-input1">
+                          <input type="text" [(ngModel)]="packageName" placeholder="Package Name">
+                        </div>
+
+
+                        <div class="subject-input5">
+                          <input type="number" min="0" [(ngModel)]="packageBase" placeholder="Base Package Price">
+                        </div>
+
+                        <div class="subject-input3">
+                          <input type="number" min="0" [(ngModel)]="packageBaseDiscussion" placeholder="BasePrice Discussion">
+                        </div>
+
+
+                        <div class="subject-input4">
+                          <input type="number" min="0" [(ngModel)]="packageBaseDiscussionTutor" placeholder="BasePrice Discussion Tutor">
+                        </div>
+
+
+
+                        <!-- <div class="inline-buttons"> -->
+                        <!-- <div class="edit-anchor">
+                            <a href="#">Edit</a>
+                          </div>
+                          <div class="save-anchor">
+                            <a href="#">Save</a>
+                          </div> -->
+                        <button class="btn bt_save1" [disabled]="btnSave" (click)="save()">
+                          SAVE
+                        </button>
+                        <!-- </div> -->
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="right-package">
+                  <div class="right-inner-package">
+                    <table class="table table-striped" border="1" style="width: 100%;">
+                      <thead>
+                        <tr>
+                          <th>Subject &nbsp; &nbsp; &nbsp; &nbsp; Chapter</th>
+                          <!-- <th>Chapter</th> -->
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let subject of subjectArrayFromDrop">
+                        <table *ngIf="subject.selected">
+                          <ng-container *ngFor="let chapter of subject.chapters">
+                            <tr *ngIf="chapter.selected">
+                              <td>{{subject.subjectName}}</td>
+                              <td>{{chapter.chapterName}}</td>
+                              <td>
+                                <!-- <span *ngFor="let topic of chapter.topics">{{topic.topicName}} ,</span> -->
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </table>
+                      </tbody>
+
+                    </table>
+
+                    <!-- <table class="table table-striped" border="0" style="width: 100%;">
+                      <thead>
+                        <tr>
+                          <th>S.NO</th>
+                          <th>Subject</th>
+                          <th>Chapter</th>
+                          <th>Topic</th>
+                        </tr>
+                        <tr>
+                          <td>Jill</td>
+                        </tr>
+                      </thead>
+                      <tbody id="tboo">
+                      </tbody>
+                    </table> -->
+                  </div>
+                </div>
+              </div>
+              <div class="right-pane-text">
+                <div class="right-package-heading">
+                  <div class="subject1">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-12">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                              <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                  aria-expanded="true" aria-controls="collapseOne">
+                                  Additional Features
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="panel-body">
+                                <div class="divide-listing">
+                                  <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                      <div class="listing-status">
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked1" (change)="select1('Activities', $event.target.checked)">
+                                          Activities
+                                        </p>
+
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked2" (change)="select1('Forums', $event.target.checked)">
+                                          Forums
+                                        </p>
+
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked3" (change)="select1('Blogs', $event.target.checked)">
+                                          Blogs
+                                        </p>
+
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked4" (change)="select1('Friends', $event.target.checked)">
+                                          Friends
+                                        </p>
+
+                                      </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                      <div class="listing-status">
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked5" (change)="select1('Chat box', $event.target.checked)">
+                                          Chat
+                                          box </p>
+
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked6" (change)="select1('Meluha Secret shop and Meluha Money', $event.target.checked)">
+                                          Meluha
+                                          Secret shop and Meluha Money</p>
+
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked7" (change)="select1('Virtual Classroom', $event.target.checked)">
+                                          Virtual
+                                          Classroom </p>
+
+                                        <p>
+                                          <input type="checkbox" [(ngModel)]="isChecked8" (change)="select1('Alerts, News and Notifications', $event.target.checked)">
+                                          Alerts,
+                                          News and Notifications</p>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn bt_2a" [disabled]="pacakageButton" (click)="proceedToSave()">
+                Create a Package
+              </button>
+              <div>
+
+                <table class="table table-striped table-bordered" border="1" style="width: 100%;">
+                  <tr>
+                    <th> Pacakage Name </th>
+                  </tr>
+                  <input type="text" [(ngModel)]="searchText" placeholder="Search Pacakage" />
+                  <tr *ngFor="let item of pacakageData | filter3: searchText">
+                    <td class="table-padding">{{item.packagedName}}
+                      <button class="btn bt_2a" [disabled]="editBtn" (click)="edit(item)">Edit</button> <button [disabled]="editBtn" class="btn bt_2a" (click)="delete(item)">Delete</button>
+                    </td>
+
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

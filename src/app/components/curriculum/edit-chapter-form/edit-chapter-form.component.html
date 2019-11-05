@@ -1,0 +1,31 @@
+<form class="form-horizontal" #form="ngForm" (submit)="onSubmit()">
+  <div class="container-fluid">
+    <br><br>
+    <div class="form-group row" [class.has-error]="name.invalid && name.touched && name != null">
+      <label class="control-label col-sm-3">Name: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="editChapter.chapterName" required>
+      </div>
+    </div>
+    <div class="form-group row" [class.has-error]="number.invalid && number.touched && number != null">
+      <label class="control-label col-sm-3">Number: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="number" #number="ngModel" [(ngModel)]="editChapter.chapterNumber" required>
+      </div>
+    </div>
+    <div class="form-group row" [class.has-error]="description.invalid && description.touched && description != null">
+      <label class="control-label col-sm-3">Description: </label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" name="description" #description="ngModel" [(ngModel)]="editChapter.chapterDescription" required>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="row col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn btn-danger btn-sm btn-right cls" (click) = "cancel()">Cancel</button>
+        <button type="submit"  class="btn btn-primary btn-sm btn-right cls" [disabled]="form.form.invalid">Update</button>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</form>

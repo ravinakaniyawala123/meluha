@@ -1,0 +1,98 @@
+<!-- <div class="main-content mrg_15" style="width: 400px; margin: auto;">
+  <div class="row">
+    <div class="col-md-12 tct">
+      <img src="/assets/img/favicon.png">
+    </div>
+  </div>
+  <div class="container-fluid mainbox">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mycard">
+     
+          <div class="card-body">
+
+
+            <form [formGroup]="loginForm" [hidden]="showLoginForm" (ngSubmit)="login(loginForm.value)">
+             
+              <div class="form-group">
+                <i class="fa fa-lock inpi"></i>
+             
+                  <input type="text" class="form-control" mask='999-999-9999' formControlName="phoneNumber" placeholder="xxx-xxx-xxxx"
+                    autocomplete="new-password" required>
+              </div>
+              <div class="form-group">
+                <i class="fa fa-user inpi"></i>
+                <input type="password" class="form-control inpt" placeholder="password" formControlName="password"
+                  required="required">
+              </div>
+
+
+
+              <div class="col-md-12" style="padding:0px;">
+                <button mat-raised-button type="submit" [disabled]="!loginForm.valid" class="btn login_st">Log In</button>
+                <button mat-raised-button type="button" (click)="guestLogin()" class="btn login_st">Guest Login</button>
+                <button mat-raised-button type="button" (click)="signUp()" class="btn login_st">Sign Up</button>
+                <a mat-raised-button (click)="forgotPassword()" class="f_pd">Forgot Password</a>
+              </div>
+            </form>
+
+            <div [hidden]=verifyNumber>
+              <input id="partitioned" placeholder="xxxxxx" type="text" maxlength="6" [(ngModel)]="otp" (input)="onSearchChange($event.target.value)" [ngModelOptions]="{standalone: true}" />
+              <button (click)="otpConfigration(otp)"[disabled]="nullCheckonotp" >Submit otp</button>
+              <button [disabled]="resend" (click)="resendOtp()">Resend Otp</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div> -->
+<div class="main-content mrg_15" style="width: 400px; margin: auto;">
+  <div class="row">
+    <div class="col-md-12 tct">
+      <img src="/assets/img/logo.png">
+    </div>
+  </div>
+  <div class="container-fluid mainbox">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mycard">
+          <div class="card-body">
+            <form [formGroup]="loginForm" [hidden]="showLoginForm" (ngSubmit)="login(loginForm.value)">
+              <div class="form-group">
+                <i class="fa fa-lock inpi"></i>
+                <input type="text" class="form-control" mask='999-999-9999' formControlName="phoneNumber" placeholder="xxx-xxx-xxxx" autocomplete="new-password"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <i class="fa fa-user inpi"></i>
+                <input type="password" class="form-control inpt" placeholder="password" formControlName="password" required="required">
+              </div>
+
+              <div class="col-md-12" style="padding:0px;">
+                <button mat-raised-button type="submit" [disabled]="!loginForm.valid" class="btn login_st">Log In</button>
+               
+                <button mat-raised-button type="button" (click)="signUp()" class="btn login_st">Sign Up</button>
+              </div>
+            </form>
+
+            <div [hidden]=verifyNumber>
+              <input id="partitioned" placeholder="xxxxxx" type="text" maxlength="6" [(ngModel)]="otp" (input)="onSearchChange($event.target.value)"
+                [ngModelOptions]="{standalone: true}" />
+              <button (click)="otpConfigration(otp)" [disabled]="nullCheckonotp">Submit otp</button>
+              <button [disabled]="resend" (click)="resendOtp()">Resend Otp</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

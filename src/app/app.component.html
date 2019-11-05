@@ -1,0 +1,18 @@
+<router-outlet *ngIf="isLoggedIn">
+  <!--<div class="container-fluid"></div>-->
+  <!--//come here soon PrimeNG-->
+  <app-nav-bar></app-nav-bar>
+  <div class="row d-table">
+    <app-left-menu
+      (click)="ChangeView($event)"></app-left-menu>
+    <app-organization *ngIf="showOrganization"></app-organization>
+    <app-content *ngIf="showContent"></app-content>
+    <app-feature *ngIf="showPackage"></app-feature>
+    <app-curriculum *ngIf="showCurri"></app-curriculum>
+  </div>
+</router-outlet>
+
+<router-outlet *ngIf="isNotLoggedIn">
+  <app-login *ngIf="login" (click)="ChangeView($event)"></app-login>
+  <app-signup *ngIf="signUp" (click)="ChangeView($event)"></app-signup>
+</router-outlet>

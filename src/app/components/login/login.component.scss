@@ -1,0 +1,82 @@
+.mainbox
+{
+    background: #fff;
+    border-radius: 5px;
+  
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+.tct
+{
+    text-align: center;
+    padding: 10px;
+}
+.ctitle
+{
+    text-align: center!important;
+}
+.smain
+{
+    border-radius: 3px!important;
+    margin-top: 14px!important;
+    padding: 15px!important;
+}
+.mycard
+{
+    margin-top:12px!important;
+    margin-bottom:12px!important;
+}
+
+.f_pd{
+    width: 100%;
+    border: 0;
+    box-shadow: none !important;
+    color: #94a3ab;
+    font-size: 16px;
+    font-weight: 300;
+}
+.login_st{
+    text-transform: capitalize !important;
+    background: #0880c6 !important;
+    font-size: 20px !important;
+    width: 100%;
+}
+.mrg_15{
+    margin-top: 15% !important;
+}
+
+.card{
+    box-shadow: none !important;
+}
+
+.mat-input-element{
+    padding: 6px;
+}
+
+.inpt{
+    float: left;
+    margin-top: -34px;
+    padding-left: 30px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.inpi{
+    font-size: 25px;
+    color:#0072c2;
+}
+
+::placeholder{
+ color: #6dbff3;
+}
+
+#partitioned {
+    padding-left: 15px;
+    letter-spacing: 42px;
+    border: 0;
+    background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 50px 1px;
+    background-repeat: repeat-x;
+    background-position-x: 35px;
+    width: 220px;
+  }

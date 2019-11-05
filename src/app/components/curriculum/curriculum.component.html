@@ -1,0 +1,285 @@
+<p-growl [life]="3000" [sticky]="false" [(value)]="msgs"></p-growl>
+<div class="col-lg-9 col-md-9 col-xs-8 d-table-col custom_div">
+  <div class="tab-content" style="">
+    <div id="home" class="tab-pane fade in active">
+      <div class="buttons-all-done">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="buttons-all">
+              <div class="button1" *ngIf="boards">
+                <p-dropdown [options]="boards" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedBoard" (onChange)="getBoardId(selectedBoard, $event)"
+                  placeholder="Board" optionLabel="boardName" [showClear]="true">
+                </p-dropdown>
+              </div>
+              <div class="button2" *ngIf="showClassButton && selectedBoard.classes">
+                <p-dropdown [options]="selectedBoard.classes" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedClass" (onChange)="getClassId(selectedClass, $event)"
+                  placeholder="Class" optionLabel="className" [showClear]="true">
+                </p-dropdown>
+              </div>
+              <div class="button3" *ngIf="showGroupButton">
+                <p-dropdown [options]="selectedClass.groups" [style]="{'width':'120px','height':'30px'}" [(ngModel)]="selectedGroup" (onChange)="getGroupId(selectedGroup, $event)"
+                  placeholder="Group" optionLabel="groupName" [showClear]="true">
+                </p-dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subject">
+        <div class="row">
+          <div class="container-fluid">
+            <form class="form-horizontal" #form="ngForm" (submit)="saveSubject()" *ngIf="formenable">
+              <div class="col-xs-12 col-md-6">
+                <div class="form-group" [class.has-error]="subject.invalid && subject.touched && subject != null ">
+                  <div class="subject-input">
+                    <input class="form-control" type="text" name="subject" #subject="ngModel" [(ngModel)]="subject_Name" placeholder="Create a subject"
+                      required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="inline-buttons">
+                  <div class="edit-anchor">
+                    <button type="button" class="btn btn-default btn-sm btn-right cls" [disabled]="enable" mwlConfirmationPopover [popoverTitle]="popoverTitle"
+                      [popoverMessage]="popoverMessage" placement="top" (confirm)="saveSubject()" (cancel)="cancelClicked = true">SAVE</button>
+                    <button type="button" class="btn btn-success btn-sm btn-right cls" (click)="addSubject()" [disabled]="form.form.invalid">CREATE</button>
+
+                    <!--<button-->
+                    <!--class="btn btn-default"-->
+                    <!--mwlConfirmationPopover-->
+                    <!--[popoverTitle]="popoverTitle"-->
+                    <!--[popoverMessage]="popoverMessage"-->
+                    <!--placement="top"-->
+                    <!--(confirm)="addSubject()"-->
+                    <!--[disabled]="form.form.invalid"-->
+                    <!--(cancel)="cancelClicked = true">-->
+                    <!--Click me!-->
+                    <!--</button>-->
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="created-subjects">
+              <h4>Created subjects</h4>
+            </div>
+            <div class="created-subjects">
+              <a *ngFor="let add_Subject of editSubjects; let i = index;" class="custom_input" (click)="editSubject(add_Subject)">{{add_Subject.subjectName}}</a>
+              <br *ngIf="show">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vector-sec">
+        <div class="row">
+          <p-accordion>
+            <p-accordionTab header="Create Chapter" [selected]="inVisibleEditChapter">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="drop-down-list">
+
+                    <select [ngModel]="selectedSubject" (click)="dropFunc($event)" (ngModelChange)="onSelectSubject($event)" data-style="btn-primary">
+                      <option></option>
+                      <option *ngFor="let subject of showableSubjects" [ngValue]="subject">{{subject.subjectName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <form class="form-horizontal" #form="ngForm" (submit)="onSubmit()">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6" *ngFor="let i of A">
+                          <div class="input-container" *ngIf="editChapters[i*5 + 0]">
+                            <p class="icon1">{{romanNumber[i*5 + 0]}}</p>
+                            <input class="input-field" type="text" placeholder="{{editChapters[i*5 + 0].chapterName}}" name="chapterName" readonly=""
+                              (click)="editChapter(editChapters[i*5 + 0])">
+
+                            <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                              (confirm)="onRemoveChapter(editChapters[i*5 + 0])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                          </div>
+                          <div class="input-container" *ngIf="editChapters[i*5 + 1]">
+                            <p class="icon1">{{romanNumber[i*5 + 1]}}</p>
+                            <input class="input-field" type="text" placeholder="{{editChapters[i*5 + 1].chapterName}}" name="chapterName" readonly=""
+                              (click)="editChapter(editChapters[i*5 + 1])">
+
+                            <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                              (confirm)="onRemoveChapter(editChapters[i*5 + 1])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                          </div>
+                          <div class="input-container" *ngIf="editChapters[i*5 + 2]">
+                            <p class="icon1">{{romanNumber[i*5 + 2]}}</p>
+                            <input class="input-field" type="text" placeholder="{{editChapters[i*5 + 2].chapterName}}" name="chapterName" readonly=""
+                              (click)="editChapter(editChapters[i*5 + 2])">
+                            <span class="glyphicon glyphicon-remove" (click)="onRemoveChapter(editChapters[i*5 + 2])"></span>
+                          </div>
+                          <div class="input-container" *ngIf="editChapters[i*5 + 3]">
+                            <p class="icon1">{{romanNumber[i*5 + 3]}}</p>
+                            <input class="input-field" type="text" placeholder="{{editChapters[i*5 + 3].chapterName}}" name="chapterName" readonly=""
+                              (click)="editChapter(editChapters[i*5 + 3])">
+                            <span class="glyphicon glyphicon-remove" (click)="onRemoveChapter(editChapters[i*5 + 3])"></span>
+                          </div>
+                          <div class="input-container" *ngIf="editChapters[i*5 + 4]">
+                            <p class="icon1">{{romanNumber[i*5 + 4]}}</p>
+                            <input class="input-field" type="text" placeholder="{{editChapters[i*5 + 4].chapterName}}" name="chapterName" readonly=""
+                              (click)="editChapter(editChapters[i*5 + 4])">
+                            <span class="glyphicon glyphicon-remove" (click)="onRemoveChapter(editChapters[i*5 + 4])"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-offset-6">
+                          <div class="inline-buttons custom_line">
+                            <div class="edit-anchor">
+                              <button type="button" class="btn btn-success btn-sm btn-right cls" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+                                placement="top" (confirm)="onSubmit()" [disabled]="enableCreateButtonSave" (cancel)="cancelClicked = true">SAVE</button>
+
+                              <button type="button" class="btn btn-primary btn-sm btn-right create" [disabled]="enableCreate" (click)="onClickAddChapter()">Click to add Chapters</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="Create Topic" [selected]="inVisibleEditTopic">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="drop-down-list">
+                    <select [ngModel]="selectedChapter" click="dropTopicData()" (ngModelChange)="onSelectChapter($event)" data-style="btn-primary">
+                      <option></option>
+
+                      <option *ngFor="let chapter of showableChapter" [ngValue]="chapter">{{chapter.chapterName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <form class="form-horizontal" #form="ngForm" (submit)="onSaveTopic()">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6 col-md-6" *ngFor="let i of B">
+                            <div class="input-container" *ngIf="editTopics[i*5 + 0]">
+                              <p class="icon1">{{romanNumber[i*5 + 0]}}</p>
+                              <input class="input-field" type="text" placeholder="{{editTopics[i*5 + 0].topicName}}" name="topicName" readonly="" (click)="editTopic(editTopics[i*5 + 0])">
+                              <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                                (confirm)="onRemoveTopic(editTopics[i*5 + 0])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                            </div>
+                            <div class="input-container" *ngIf="editTopics[i*5 + 1]">
+                              <p class="icon1">{{romanNumber[i*5 + 1]}}</p>
+                              <input class="input-field" type="text" placeholder="{{editTopics[i*5 + 1].topicName}}" name="topicName" readonly="" (click)="editTopic(editTopics[i*5 + 1])">
+                              <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                                (confirm)="onRemoveTopic(editTopics[i*5 + 1])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                            </div>
+                            <div class="input-container" *ngIf="editTopics[i*5 + 2]">
+                              <p class="icon1">{{romanNumber[i*5 + 2]}}</p>
+                              <input class="input-field" type="text" placeholder="{{editTopics[i*5 + 2].topicName}}" name="topicName" readonly="" (click)="editTopic(editTopics[i*5 + 2])">
+                              <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                                (confirm)="onRemoveTopic(editTopics[i*5 + 2])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                            </div>
+                            <div class="input-container" *ngIf="editTopics[i*5 + 3]">
+                              <p class="icon1">{{romanNumber[i*5 + 3]}}</p>
+                              <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                                (confirm)="onRemoveTopic(editTopics[i*5 + 3])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                            </div>
+                            <div class="input-container" *ngIf="editTopics[i*5 + 4]">
+                              <p class="icon1">{{romanNumber[i*5 + 4]}}</p>
+                              <input class="input-field" type="text" placeholder="{{editTopics[i*5 + 4].topicName}}" name="topicName" readonly="" (click)="editTopic(editTopics[i*5 + 4])">
+                              <span type="button" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top"
+                                (confirm)="onRemoveTopic(editTopics[i*5 + 4])" (cancel)="cancelClicked = true" class="glyphicon glyphicon-remove"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-offset-6">
+                            <div class="inline-buttons custom_line">
+                              <div class="edit-anchor">
+
+                                <button type="button" class="btn btn-success btn-sm btn-right cls" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage"
+                                  placement="top" (confirm)="onSaveTopic()" [disabled]="enableCreateTopicSaveButton" (cancel)="cancelClicked = true">SAVE</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-right create" [disabled]="enableCreateTopic" (click)="onClickAddTopic()">Click to add Topic</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </p-accordionTab>
+            <p-accordionTab header="CurriCulum Table" [selected]="inVisibleTable">
+              <div class="card-one left-bg">
+                <h3>Info</h3>
+                <table class="table table-striped table-bordered" border="1" style="width: 100%;">
+                  <thead>
+                    <tr>
+                      <th>Subject</th>
+                      <th>Chapter</th>
+                      <th>Topic</th>
+                    </tr>
+                    <input type="text" [(ngModel)]="searchText" placeholder="Search subject" />
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let subject of editSubjects | filter2:searchText">
+                      <tr *ngFor="let chapter of subject.chapters">
+                        <td>{{subject.subjectName}}</td>
+                        <td>{{chapter.chapterName}}</td>
+                        <td>
+                          <span *ngFor="let topic of chapter.topics">{{topic.topicName}} ,</span>
+                        </td>
+                      </tr>
+
+                    </ng-container>
+                  </tbody>
+
+                </table>
+              </div>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-dialog [style]="{'background':'white'}" [(visible)]="showCreateChapter" [modal]="true" [height]="300" [responsive]="true"
+  [width]="450">
+  <p-header>
+    Create New Chapter
+  </p-header>
+  <app-create-chapter-from (create)="createChapter($event)" (close)="onCloseDialog()"></app-create-chapter-from>
+</p-dialog>
+
+<p-dialog [style]="{'background':'white'}" [(visible)]="showCreateTopic" [modal]="true" [height]="300" [responsive]="true"
+  [width]="450">
+  <p-header>
+    Create New Topic
+  </p-header>
+  <app-create-topic-form (create)="createTopic($event)" (close)="onCloseDialog()">
+  </app-create-topic-form>
+</p-dialog>
+<p-dialog [style]="{'background':'white'}" [(visible)]="showEditSubject" [modal]="true" [height]="300" [responsive]="true"
+  [width]="450">
+  <p-header>
+    Edit Subject
+  </p-header>
+  <app-edit-subject-form [subject]="updatableSubject" (update)="onUpdateSubject($event)" (del)="onDeleteSubject($event)"></app-edit-subject-form>
+</p-dialog>
+<p-dialog [style]="{'background':'white'}" [(visible)]="showEditChapter" [modal]="true" [height]="300" [responsive]="true"
+  [width]="450">
+  <p-header>
+    Edit Chapter
+  </p-header>
+  <app-edit-chapter-form [chapter]="editableChapter" (update)="updateChapter($event)" (close)="onCloseDialog()"></app-edit-chapter-form>
+</p-dialog>
+
+<p-dialog [style]="{'background':'white'}" [(visible)]="showEditTopic" [modal]="true" [height]="300" [responsive]="true"
+  [width]="450">
+  <p-header>
+    Edit Topic
+  </p-header>
+  <app-edit-topic-form [topic]="editableTopic" (update)="updateTopic($event)" (close)="onCloseDialog()">
+  </app-edit-topic-form>
+</p-dialog>

@@ -1,0 +1,157 @@
+<p-growl [life]="3000" [sticky]="false" [(value)]="msgs"></p-growl>
+<div class="col-lg-9 col-md-9 col-xs-8 d-table-col custom_div">
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="main-heading">{{'MELUHA LMS MASTER'}}</h2>
+        </div>
+      </div>
+      <div class="card-one left-bg margin-bottom">
+        <div class="border-bottom">
+          <div class="title " style="">
+            <div class="row">
+              <div class="brand custom_brand">
+                <label class="col-sm-3 board col-lg-1">Boards</label>
+                <p-dropdown [options]="boards" [(ngModel)]="board" placeholder="Select One" optionLabel="boardName" (onChange)="selectBoard(board)"
+                  [showClear]="true"></p-dropdown>
+                <img src="../../../assets/images/add-class.png" class="col-sm-1 board col-lg-1 custom_img" style="margin-top: -5px" (click)="showCreateBoardDialog()">
+                <img src="../../../assets/images/edit.png" class="edit custom_img" (click)="showEditBoardDialog()" *ngIf="enableEdit">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="board-class">
+          <div class="title cls" *ngIf="showClass">
+            <div class="row">
+              <div class="brand">
+                <label class="board col-lg-1 cls">Classes</label>
+              </div>
+              <div class="brand">
+                <img src="../../../assets/images/add-class.png" class="board col-lg-1 cls" style="margin-left: 20px" (click)="showCreateClassesDialog()">
+              </div>
+            </div>
+          </div>
+          <div class="border-bottom" *ngIf="showClassTable">
+            <div class="row">
+              <div class="col-xs-2" *ngFor="let i of A">
+                <p *ngIf="showableClasses[i*3 + 0]" style="cursor: pointer" (click)="editClass(showableClasses[i*3 + 0])">{{showableClasses[i*3 + 0].className}}</p>
+                <p *ngIf="showableClasses[i*3 + 1]" style="cursor: pointer" (click)="editClass(showableClasses[i*3 + 1])">{{showableClasses[i*3 + 1].className}}</p>
+                <p *ngIf="showableClasses[i*3 + 2]" style="cursor: pointer" (click)="editClass(showableClasses[i*3 + 2])">{{showableClasses[i*3 + 2].className}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="board-class-group" *ngIf="showGroup">
+          <div class="title cls">
+            <div class="row">
+              <div class="brand">
+                <label class="board col-lg-1 cls">Groups</label>
+              </div>
+              <div class="brand">
+                <img src="../../../assets/images/add-class.png" class="board col-lg-1 cls" style="margin-left: 20px" (click)="showGroupDialog()">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-bottom group" *ngIf="showGroupList">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="row" *ngFor="let class of showableClasses; let i = index;">
+                <div class="col-xs-12 group" *ngIf="class.groups != null">
+                  <div class="check-list" *ngIf="class.groups.length != 0">
+                    <p class="class11">{{class.className}} </p>
+                    <div class="btn-group mr-4" data-toggle="buttons" *ngFor="let group of class.groups; let j = index">
+                      <button class="btn btn-success form-check-input" (click)="onClickGroup(class, group)">{{group.groupName}}</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12" *ngIf="show">
+              <div class="row">
+                <button [disabled]="showBUttonOnBoardPage" type="button" class="btn btn-success col-sm-offset-11" mwlConfirmationPopover
+                  [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="top" (confirm)="saveBoardData()"
+                  (cancel)="cancelClicked = true">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-one left-bg">
+        <h3>MELUHA LMS MASTER</h3>
+        <table class="table table-striped table-bordered" border="1" style="width: 100%;">
+          <tr>
+            <th style="width:40%;"> Boards </th>
+            <th style="width:60%"> Classes </th>
+          </tr>   
+          <input type="text" [(ngModel)]="searchText" placeholder="Search Board" />
+          <tr *ngFor="let board of boards | filter: searchText">
+
+            <td class="table-padding" style="width:40%">{{board.boardName}}</td>
+            <td class="table-padding" style="width:60%">
+              <span *ngFor="let class of board.classes">{{class.className}} ,</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showCreateBoard" [modal]="true" [height]="300" [responsive]="true"
+    [width]="450">
+    <p-header class="board-header">
+      Create Board
+    </p-header>
+    <app-organization-create-board (showMessage)="onShowMessage($event)" (create)="onCreateBoard($event)" (close)="onCloseDialog()">
+    </app-organization-create-board>
+  </p-dialog>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showEditBoard" [modal]="true" [height]="300" [responsive]="true"
+    [width]="500">
+    <p-header class="board-header">
+      Edit Board
+    </p-header>
+    <app-organization-edit-board (showMessage)="onShowMessage($event)" [newBoard]="editableBoard" (updateBoard)="onUpdateBoard($event)"
+      (delete)="DeleteBoard($event)">
+    </app-organization-edit-board>
+
+  </p-dialog>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showCreateClass" [responsive]="true" [width]="600" [Minheight]="300">
+    <p-header class="board-header">
+      Create Class
+    </p-header>
+    <app-organization-create-class (createClass)="onCreateClass($event)" (close)="onCloseDialog()" (showMessage)="onShowMessage($event)">
+    </app-organization-create-class>
+  </p-dialog>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showCreateSimpleClass" [modal]="true" [height]="300" [responsive]="true"
+    [width]="600">
+    <p-header class="board-header">
+      Edit Class
+    </p-header>
+    <app-organization-creat-simple-class [editSimpleClass]="editableClass" (updateSimpleClass)="onUpdateSimpleClass($event)"
+      (deleteSimpleClass)="onDeleteSimpleClass($event)">
+    </app-organization-creat-simple-class>
+  </p-dialog>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showCreateGroup" [modal]="true" [Minheight]="300" [width]="600" [responsive]="true">
+    <p-header class="board-header">
+      Create Group
+    </p-header>
+    <app-organization-create-group [classes]="showableClasses" (createGroup)="onCreateGroup($event)" (close)="onCloseDialog()"
+      (showMessage)="onShowMessage($event)">
+    </app-organization-create-group>
+  </p-dialog>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showEditGroup" [modal]="true" [Minheight]="300" [width]="600" [responsive]="true"
+    [Maxheight]="1000">
+    <p-header class="board-header">
+      Edit Group
+    </p-header>
+    <app-organization-edit-group [editGroup]="editableGroup" (updateGroup)="onUpdateGroup($event)" (deleteGroup)="onDeleteGroup($event)">
+    </app-organization-edit-group>
+  </p-dialog>
+  <p-dialog [style]="{'background':'white'}" [(visible)]="showDialog" [modal]="true" [Minheight]="300" [width]="600" [responsive]="true"
+    [Maxheight]="1000">
+    <div class="container-fluid">
+      <P></P>
+    </div>
+  </p-dialog>
+
+</div>

@@ -1,0 +1,29 @@
+<form class="form-horizontal" #form="ngForm" (submit)="onSubmit()">
+  <div class="container-fluid">
+    <div class="form-group row">
+      <label class="control-label col-sm-2">Class: </label>
+      <div class="col-sm-10">
+        <select name="symptom" class="form-control" [ngModel]="selectedClassGroup" required (ngModelChange)="onSelectClassGroup($event)">
+          <option  value='hi'>PLease select a class</option>
+          <option *ngFor="let classGroup of filterItemsOfType(true)" [ngValue]="classGroup">{{classGroup.className}}</option>
+         
+        </select>
+      </div>
+    </div>
+    <div class="form-group row" *ngFor="let group of groups; let i = index;">
+      <label class="control-label col-sm-2">Group:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" #groupName="ngModel" name="groupName{{i}}" [(ngModel)] = "group.groupName"  required>
+        <button type="button" class="deleteBtn" (click)="delete(group)">delete</button>
+
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="row col-sm-offset-2 col-sm-10">
+        <button type="button" class="btn btn-default btn-sm btn-right cls" (click) = "cancel()">Cancel</button>
+        <button type="submit"  class="btn btn-primary btn-sm btn-right cls">Create</button>
+        <button type="button" class="btn btn-success btn-sm btn-right cls" (click)="Add()">Add</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,51 @@
+<form class="form-horizontal" #form="ngForm" (submit)="onSubmit()">
+  <div class="container-fluid">
+    <br><br>
+    <div class="row">
+      <div class="form-group row h">
+        <label class="control-label col-sm-3">CLASS </label>
+        <label class="control-label col-sm-5">GROUPS </label>
+        <label class="control-label col-sm-4">STATUS</label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-group">
+        <div class="col-sm-5">
+          <input type="text" class="form-control" name="name" #name="ngModel" value="{{sameSimpleClass.className}}" [(ngModel)]="sameSimpleClass.className">
+        </div>
+        <div class="col-sm-5">
+          <div class="check">
+            <label class="radio-inline">
+              <input type="radio" name="group" [(ngModel)]="sameSimpleClass.hasGroups" [value]="true">yes
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="group" [(ngModel)]="sameSimpleClass.hasGroups" [value]="false">no
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <ui-switch name="activity" [(ngModel)]="sameSimpleClass.isActivity" size="small"></ui-switch>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="row col-sm-offset-2 col-sm-10">
+        <button
+          type="button"
+          class="btn btn-danger btn-sm btn-right cls"
+           mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
+            placement="top"
+            (confirm)="delete()"
+
+            (cancel)="cancelClicked = true"
+
+        >Delete</button>
+
+        <button type="submit"  class="btn btn-primary btn-sm btn-right cls" [disabled]="form.form.invalid">Update</button>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</form>

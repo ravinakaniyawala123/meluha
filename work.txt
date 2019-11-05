@@ -1,0 +1,10 @@
+new task 
+1.) pacakge params
+2.) pacakge delete
+3.)content delete
+
+
+old work 
+1.) separation of subjects and chapter
+
+all this is in admin panel
