@@ -44,7 +44,7 @@
     "primeng": "^6.0.2",
     "rxjs": "^6.0.0",
     "sweetalert2": "^7.28.11",
-    "xlsx": "^0.13.4",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
